@@ -11,8 +11,7 @@ then
   cd client
   mkdir stylesheets views lib
   touch application.js
-  touch index.html
-  touch index.js
+  touch template.html
 
   # server
   cd ../server
