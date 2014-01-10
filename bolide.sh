@@ -1,32 +1,31 @@
 #!/bin/bash
 
-if [ "$1" ]
-then
+if [ "$1" ]; then
+  if [ ! -d "$1" ]; then
+    if [ "$2" = "coffee" ]; then
+      lang="coffee"
+    else
+      lang="js"
+    fi
 
-  if [ "$2" = "coffee" ]
-  then
-    lang="coffee"
+    meteor create $1
+    cd $1
+    rm *
+    mkdir client server public collections lib
+
+    touch lib/router.$lang
+
+    # client
+    mkdir client/stylesheets client/views
+    touch client/application.$lang
+    touch client/layout.html
+    touch client/layout.js
+
+    # server
+    touch server/publications.$lang
   else
-    lang="js"
+    echo "$1 Directory already exists"
   fi
-
-  meteor create $1
-  cd $1
-  rm *
-  mkdir client server public collections lib
-  
-  # client
-  cd client
-  mkdir stylesheets views lib
-  touch application.$lang
-  touch template.html
-  cd lib
-  touch helpers.$lang
-
-  # server
-  cd ../../server
-  touch publications.$lang
-  mkdir lib
 else
   echo "Usage: bolide [name]"
 fi
