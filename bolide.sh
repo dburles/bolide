@@ -16,7 +16,7 @@ if [ "$1" ]; then
     touch lib/router.$lang
 
     # client
-    mkdir client/stylesheets client/views
+    mkdir client/stylesheets client/views client/components
     touch client/application.$lang
     touch client/layout.html
     touch client/layout.js
