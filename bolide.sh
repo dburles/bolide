@@ -11,9 +11,13 @@ if [ "$1" ]; then
     meteor create $1
     cd $1
     rm *
-    mkdir client server public collections lib
+    mkdir client server public common
 
-    touch lib/router.$lang
+    touch common/router.$lang
+
+    # common
+    mkdir common/collections
+    mkdir common/lib
 
     # client
     mkdir client/stylesheets client/views client/components
