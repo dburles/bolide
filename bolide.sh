@@ -20,10 +20,10 @@ if [ "$1" ]; then
     mkdir common/lib
 
     # client
-    mkdir client/stylesheets client/views client/components
+    mkdir client/stylesheets client/views client/components client/application
     touch client/application.$lang
     touch client/layout.html
-    touch client/layout.js
+    touch client/layout.$lang
 
     # server
     touch server/publications.$lang
